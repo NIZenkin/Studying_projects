@@ -21,9 +21,7 @@ int main()
     int iteration = 0; //Защита от бесконечного цикла
 
     scanf("%s", login);
-
     login_length = strlen(login);
-
     FILE *file = fopen("/etc/passwd", "r");
 
     for(int i = 1; i <= MAX_FILE; i++)
@@ -38,7 +36,7 @@ int main()
 
         if(i == MAX_FILE)
         {
-            printf("login was not fount. Exiting...\n");
+            printf("login was not found. Exiting...\n");
             return -1;
         }
 
@@ -58,6 +56,13 @@ int main()
             line_p++;
             iteration++;
         }
+
+        if(iteration >= MAX_LINE)
+        {
+            printf("Error! Exiting...");
+            break;
+        }
+
     }
 
     iteration = 0;
@@ -68,6 +73,13 @@ int main()
         line_p++;
         name_p++;
         iteration++;
+
+        if(iteration >= MAX_LINE)
+            {
+                printf("Error! Exiting...");
+                break;
+            }
+
     }
 
     printf("%s", name);
