@@ -20,6 +20,7 @@ int main()
     int colon = 0;
     int iteration = 0; //Защита от бесконечного цикла
 
+    printf("Enter login\n");
     scanf("%s", login);
     login_length = strlen(login);
     FILE *file = fopen("/etc/passwd", "r");
